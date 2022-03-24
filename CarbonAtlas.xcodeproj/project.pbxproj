@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4845B63227ED0EED00A4C30D /* NavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845B63127ED0EED00A4C30D /* NavigationStack.swift */; };
 		48B62F3727D665E10004BDFF /* CarbonAtlasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */; };
 		48B62F3927D665E10004BDFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B62F3827D665E10004BDFF /* ContentView.swift */; };
 		48B62F3B27D665E10004BDFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B62F3A27D665E10004BDFF /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4845B63127ED0EED00A4C30D /* NavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
 		48B62F3327D665E10004BDFF /* CarbonAtlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonAtlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonAtlasApp.swift; sourceTree = "<group>"; };
 		48B62F3827D665E10004BDFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */,
 				48B62F3827D665E10004BDFF /* ContentView.swift */,
+				4845B63127ED0EED00A4C30D /* NavigationStack.swift */,
 				48B62F3A27D665E10004BDFF /* Assets.xcassets */,
 				48B62F3C27D665E10004BDFF /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B62F3927D665E10004BDFF /* ContentView.swift in Sources */,
+				4845B63227ED0EED00A4C30D /* NavigationStack.swift in Sources */,
 				48B62F3727D665E10004BDFF /* CarbonAtlasApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
