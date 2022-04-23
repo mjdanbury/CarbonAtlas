@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var footprints: [Footprint]
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
+    
+    
     var body: some View {
-        Text("Carbon Atlas")
-            .font(.title)
+        GeometryReader { geo in
+            ZStack{
+                Rectangle().fill(Color.white)
+                ForEach($footprints) { $footprint in
+                    Circle()
+                        .fill(Color.gray)
+                        .offset(x: footprint.x, y: footprint.y)
+                }
+            }
+            .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+            .clipShape(Rectangle().size(width: geo.size.width, height: geo.size.height))
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(footprints: .constant(Footprint.sampleData), saveAction: {})
     }
 }

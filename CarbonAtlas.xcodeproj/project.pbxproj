@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4845B63227ED0EED00A4C30D /* NavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845B63127ED0EED00A4C30D /* NavigationStack.swift */; };
+		48A91F6928147313005A9AE6 /* FootprintStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6828147313005A9AE6 /* FootprintStore.swift */; };
+		48A91F6C2814734C005A9AE6 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6B2814734C005A9AE6 /* Footprint.swift */; };
+		48A91F6E281477E2005A9AE6 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6D281477E2005A9AE6 /* ErrorWrapper.swift */; };
+		48A91F7028147913005A9AE6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6F28147913005A9AE6 /* ErrorView.swift */; };
 		48B62F3727D665E10004BDFF /* CarbonAtlasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */; };
 		48B62F3927D665E10004BDFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B62F3827D665E10004BDFF /* ContentView.swift */; };
 		48B62F3B27D665E10004BDFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B62F3A27D665E10004BDFF /* Assets.xcassets */; };
@@ -16,6 +20,10 @@
 
 /* Begin PBXFileReference section */
 		4845B63127ED0EED00A4C30D /* NavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
+		48A91F6828147313005A9AE6 /* FootprintStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootprintStore.swift; sourceTree = "<group>"; };
+		48A91F6B2814734C005A9AE6 /* Footprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
+		48A91F6D281477E2005A9AE6 /* ErrorWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		48A91F6F28147913005A9AE6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		48B62F3327D665E10004BDFF /* CarbonAtlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonAtlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonAtlasApp.swift; sourceTree = "<group>"; };
 		48B62F3827D665E10004BDFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +42,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48A91F6A2814733C005A9AE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48A91F6D281477E2005A9AE6 /* ErrorWrapper.swift */,
+				48A91F6828147313005A9AE6 /* FootprintStore.swift */,
+				48A91F6B2814734C005A9AE6 /* Footprint.swift */,
+				4845B63127ED0EED00A4C30D /* NavigationStack.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		48B62F2A27D665E10004BDFF = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +72,10 @@
 		48B62F3527D665E10004BDFF /* CarbonAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				48A91F6A2814733C005A9AE6 /* Model */,
 				48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */,
+				48A91F6F28147913005A9AE6 /* ErrorView.swift */,
 				48B62F3827D665E10004BDFF /* ContentView.swift */,
-				4845B63127ED0EED00A4C30D /* NavigationStack.swift */,
 				48B62F3A27D665E10004BDFF /* Assets.xcassets */,
 				48B62F3C27D665E10004BDFF /* Preview Content */,
 			);
@@ -140,9 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A91F6E281477E2005A9AE6 /* ErrorWrapper.swift in Sources */,
 				48B62F3927D665E10004BDFF /* ContentView.swift in Sources */,
+				48A91F6928147313005A9AE6 /* FootprintStore.swift in Sources */,
 				4845B63227ED0EED00A4C30D /* NavigationStack.swift in Sources */,
+				48A91F7028147913005A9AE6 /* ErrorView.swift in Sources */,
 				48B62F3727D665E10004BDFF /* CarbonAtlasApp.swift in Sources */,
+				48A91F6C2814734C005A9AE6 /* Footprint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
