@@ -10,21 +10,20 @@ import SwiftUI
 struct ContentView: View {
     @Binding var footprints: [Footprint]
     @Environment(\.scenePhase) private var scenePhase
+    @State private var isInMapMode = false
     let saveAction: ()->Void
     
-    
     var body: some View {
-        GeometryReader { geo in
-            ZStack{
-                Rectangle().fill(Color.white)
-                ForEach($footprints) { $footprint in
-                    Circle()
-                        .fill(Color.gray)
-                        .offset(x: footprint.x, y: footprint.y)
-                }
+        if isInMapMode {
+            MapView(footprints: $footprints, isInMapMode: $isInMapMode)
+            .onChange(of: scenePhase) { phase in
+                if phase == .inactive { saveAction() }
             }
-            .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-            .clipShape(Rectangle().size(width: geo.size.width, height: geo.size.height))
+        } else {
+            ListView(footprints: $footprints, isInMapMode: $isInMapMode)
+            .onChange(of: scenePhase) { phase in
+                if phase == .inactive { saveAction() }
+            }
         }
     }
 }

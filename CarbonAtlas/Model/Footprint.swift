@@ -12,7 +12,7 @@ struct Footprint: Identifiable, Codable {
     var x: Double
     var y: Double
     var name: String
-    var description: String = ""
+    var notes: String = ""
     var possibleImageName: String
     var c02e: Double
     
@@ -23,6 +23,45 @@ struct Footprint: Identifiable, Codable {
         self.name = name
         self.possibleImageName = possibleImageName
         self.c02e = c02e
+    }
+}
+
+extension Footprint {
+    struct Data {
+        var name: String = ""
+        var notes: String = ""
+        var possibleImageName: String = ""
+        var c02e: String = "0"
+    }
+    
+    var data: Data {
+        Data(name: name, notes: notes, possibleImageName: possibleImageName, c02e: String(c02e))
+    }
+    
+    // idek if I will need to call this... I haven't yet used DetailView
+    mutating func update(from data: Data) {
+        name = data.name
+        notes = data.notes
+        possibleImageName = data.possibleImageName
+        c02e = Double(data.c02e) ?? 0
+        
+        let drawingAngle = Double.random(in: 0..<6.28)
+        let drawingRadius = 3*(((Double(data.c02e) ?? 0)*5000).squareRoot())
+        x = drawingRadius * cos(drawingAngle)
+        y = drawingRadius * sin(drawingAngle)
+    }
+    
+    init(id: UUID = UUID(), data: Data) {
+        self.id = id
+        self.name = data.name
+        self.possibleImageName = data.possibleImageName
+        self.notes = data.notes
+        self.c02e = Double(data.c02e) ?? 0
+        
+        let drawingAngle = Double.random(in: 0..<6.28)
+        let drawingRadius = 3*(((Double(data.c02e) ?? 0)*5000).squareRoot())
+        self.x = drawingRadius * cos(drawingAngle)
+        self.y = drawingRadius * sin(drawingAngle)
     }
 }
 

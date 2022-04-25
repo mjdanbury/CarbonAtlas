@@ -12,6 +12,11 @@
 		48A91F6C2814734C005A9AE6 /* Footprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6B2814734C005A9AE6 /* Footprint.swift */; };
 		48A91F6E281477E2005A9AE6 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6D281477E2005A9AE6 /* ErrorWrapper.swift */; };
 		48A91F7028147913005A9AE6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F6F28147913005A9AE6 /* ErrorView.swift */; };
+		48A91F7228148F56005A9AE6 /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F7128148F56005A9AE6 /* DetailEditView.swift */; };
+		48A91F742816F8D3005A9AE6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F732816F8D3005A9AE6 /* ListView.swift */; };
+		48A91F762817021B005A9AE6 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F752817021B005A9AE6 /* ListHeaderView.swift */; };
+		48A91F7828170600005A9AE6 /* MapHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F7728170600005A9AE6 /* MapHeaderView.swift */; };
+		48A91F7A2817070A005A9AE6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A91F792817070A005A9AE6 /* MapView.swift */; };
 		48B62F3727D665E10004BDFF /* CarbonAtlasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */; };
 		48B62F3927D665E10004BDFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B62F3827D665E10004BDFF /* ContentView.swift */; };
 		48B62F3B27D665E10004BDFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B62F3A27D665E10004BDFF /* Assets.xcassets */; };
@@ -24,6 +29,11 @@
 		48A91F6B2814734C005A9AE6 /* Footprint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footprint.swift; sourceTree = "<group>"; };
 		48A91F6D281477E2005A9AE6 /* ErrorWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
 		48A91F6F28147913005A9AE6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		48A91F7128148F56005A9AE6 /* DetailEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
+		48A91F732816F8D3005A9AE6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		48A91F752817021B005A9AE6 /* ListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
+		48A91F7728170600005A9AE6 /* MapHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHeaderView.swift; sourceTree = "<group>"; };
+		48A91F792817070A005A9AE6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		48B62F3327D665E10004BDFF /* CarbonAtlas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonAtlas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonAtlasApp.swift; sourceTree = "<group>"; };
 		48B62F3827D665E10004BDFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +86,11 @@
 				48B62F3627D665E10004BDFF /* CarbonAtlasApp.swift */,
 				48A91F6F28147913005A9AE6 /* ErrorView.swift */,
 				48B62F3827D665E10004BDFF /* ContentView.swift */,
+				48A91F732816F8D3005A9AE6 /* ListView.swift */,
+				48A91F752817021B005A9AE6 /* ListHeaderView.swift */,
+				48A91F7128148F56005A9AE6 /* DetailEditView.swift */,
+				48A91F792817070A005A9AE6 /* MapView.swift */,
+				48A91F7728170600005A9AE6 /* MapHeaderView.swift */,
 				48B62F3A27D665E10004BDFF /* Assets.xcassets */,
 				48B62F3C27D665E10004BDFF /* Preview Content */,
 			);
@@ -160,13 +175,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A91F7828170600005A9AE6 /* MapHeaderView.swift in Sources */,
+				48A91F7A2817070A005A9AE6 /* MapView.swift in Sources */,
 				48A91F6E281477E2005A9AE6 /* ErrorWrapper.swift in Sources */,
 				48B62F3927D665E10004BDFF /* ContentView.swift in Sources */,
 				48A91F6928147313005A9AE6 /* FootprintStore.swift in Sources */,
+				48A91F7228148F56005A9AE6 /* DetailEditView.swift in Sources */,
 				4845B63227ED0EED00A4C30D /* NavigationStack.swift in Sources */,
 				48A91F7028147913005A9AE6 /* ErrorView.swift in Sources */,
 				48B62F3727D665E10004BDFF /* CarbonAtlasApp.swift in Sources */,
+				48A91F762817021B005A9AE6 /* ListHeaderView.swift in Sources */,
 				48A91F6C2814734C005A9AE6 /* Footprint.swift in Sources */,
+				48A91F742816F8D3005A9AE6 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
