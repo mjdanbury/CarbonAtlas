@@ -6,23 +6,35 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Footprint: Identifiable, Codable {
     var id: UUID
-    var x: Double
-    var y: Double
+    
+    //Should these be CGFloats to cut down on runtime type conversions?? Probably lol
+    var x: CGFloat
+    var y: CGFloat
     var name: String
     var notes: String = ""
     var possibleImageName: String
-    var c02e: Double
+    var c02e: Double {
+        willSet {
+            drawingRadius = CGFloat(abs(newValue*5000).squareRoot())
+        }
+    }
+    //This too lol
+    var drawingRadius: CGFloat
     
-    init(id: UUID = UUID(), x: Double, y: Double, name: String, possibleImageName: String, c02e: Double){
+    
+    
+    init(id: UUID = UUID(), x: CGFloat, y: CGFloat, name: String, possibleImageName: String, c02e: Double){
         self.id = id
         self.x = x
         self.y = y
         self.name = name
         self.possibleImageName = possibleImageName
         self.c02e = c02e
+        self.drawingRadius = CGFloat(abs(self.c02e).squareRoot())
     }
 }
 
@@ -46,9 +58,8 @@ extension Footprint {
         c02e = Double(data.c02e) ?? 0
         
         let drawingAngle = Double.random(in: 0..<6.28)
-        let drawingRadius = 3*(((Double(data.c02e) ?? 0)*5000).squareRoot())
-        x = drawingRadius * cos(drawingAngle)
-        y = drawingRadius * sin(drawingAngle)
+        x = CGFloat(3 * drawingRadius * cos(drawingAngle))
+        y = CGFloat(3 * drawingRadius * sin(drawingAngle))
     }
     
     init(id: UUID = UUID(), data: Data) {
@@ -57,11 +68,11 @@ extension Footprint {
         self.possibleImageName = data.possibleImageName
         self.notes = data.notes
         self.c02e = Double(data.c02e) ?? 0
+        self.drawingRadius = CGFloat(abs(self.c02e*5000).squareRoot())
         
         let drawingAngle = Double.random(in: 0..<6.28)
-        let drawingRadius = 3*(((Double(data.c02e) ?? 0)*5000).squareRoot())
-        self.x = drawingRadius * cos(drawingAngle)
-        self.y = drawingRadius * sin(drawingAngle)
+        self.x = CGFloat(3 * self.drawingRadius * cos(drawingAngle))
+        self.y = CGFloat(3 * self.drawingRadius * sin(drawingAngle))
     }
 }
 

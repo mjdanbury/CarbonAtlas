@@ -13,6 +13,10 @@ struct MapView: View {
     @State private var currentSelection: Footprint? = nil
     @State private var isInLayoutMode = false
     
+    //Zooming
+    @State private var zoomScale: CGFloat = 0.5
+    @State private var initialZoomScale: CGFloat?
+    
     var body: some View {
         VStack {
             MapHeaderView(isInMapMode: $isInMapMode, isInLayoutMode: $isInLayoutMode)
@@ -22,6 +26,7 @@ struct MapView: View {
                     ForEach($footprints) { $footprint in
                         Circle()
                             .fill(Color.gray)
+                            .frame(width: footprint.drawingRadius, height: footprint.drawingRadius)
                             .offset(x: footprint.x, y: footprint.y)
 //                            .gesture( isInLayoutMode ? DragGesture()
 //                                .onChanged { value in
@@ -32,9 +37,21 @@ struct MapView: View {
 //                                    // initial position = nil
 //                                } : nil ) //ill need to do something similar on the magnification gesture
                     }
+                    .scaleEffect(self.zoomScale)
                 }
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 .clipShape(Rectangle().size(width: geo.size.width, height: geo.size.height))
+                .gesture(MagnificationGesture()
+                    .onChanged { value in
+                        if self.initialZoomScale == nil {
+                            self.initialZoomScale = self.zoomScale
+                        }
+                    zoomScale = value.magnitude * (initialZoomScale ?? 4.0)
+                    }
+                    .onEnded { value in
+                        zoomScale = value.magnitude * (initialZoomScale ?? 4.0)
+                        self.initialZoomScale = nil
+                    })
             }
             HStack {
                 if let selection = currentSelection {
