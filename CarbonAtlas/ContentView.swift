@@ -14,6 +14,7 @@ struct ContentView: View {
     let saveAction: ()->Void
     
     var body: some View {
+        
         if isInMapMode {
             MapView(footprints: $footprints, isInMapMode: $isInMapMode)
             .onChange(of: scenePhase) { phase in

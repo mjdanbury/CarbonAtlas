@@ -12,7 +12,7 @@ struct ListHeaderView: View {
     @Binding var isPresentingNewFootprintView: Bool
     var body: some View {
         HStack{
-            Button(action: {isInMapMode = true}) {
+            Button(action: {isInMapMode.toggle()}) {
                 Image(systemName: "circle.grid.cross")
             }
             Spacer()

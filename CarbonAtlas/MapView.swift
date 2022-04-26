@@ -11,7 +11,7 @@ struct MapView: View {
     @Binding var footprints: [Footprint]
     @Binding var isInMapMode: Bool
     @State private var currentSelection: Footprint? = nil
-    @State private var isInLayoutMode = true
+    @State private var isInLayoutMode = false
     
     //Zooming
     @State private var zoomScale: CGFloat = 0.5
@@ -24,6 +24,7 @@ struct MapView: View {
     var body: some View {
         VStack {
             MapHeaderView(isInMapMode: $isInMapMode, isInLayoutMode: $isInLayoutMode)
+                .zIndex(1)
             GeometryReader { geo in
                 ZStack{
                     Rectangle().fill(Color.white)
@@ -53,7 +54,7 @@ struct MapView: View {
                 }
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 .clipShape(Rectangle().size(width: geo.size.width, height: geo.size.height))
-                .gesture(MagnificationGesture()
+                .gesture( !isInLayoutMode ? MagnificationGesture()
                     .onChanged { value in
                         if self.initialZoomScale == nil {
                             self.initialZoomScale = self.zoomScale
@@ -63,10 +64,10 @@ struct MapView: View {
                     .onEnded { value in
                         zoomScale = value.magnitude * (initialZoomScale ?? 4.0)
                         self.initialZoomScale = nil
-                    })
+                    } : nil )
             }
             HStack {
-                if let selection = currentSelection {
+                if let selection = currentSelection, !isInLayoutMode {
                     Text(selection.name)
                     Text(CO2Format(selection.c02e))
                     Button(action: {currentSelection = nil}) {

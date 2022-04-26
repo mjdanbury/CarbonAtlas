@@ -12,14 +12,14 @@ struct MapHeaderView: View {
     @Binding var isInLayoutMode: Bool
     var body: some View {
         HStack{
-            Button(action: {isInMapMode = false}) {
+            Button(action: {isInMapMode.toggle()}) {
                 Image(systemName: "text.justify")
             }
             Spacer()
             Text("Carbon Atlas")
                 .font(.title2)
             Spacer()
-            Button(action: {isInLayoutMode = true}) {
+            Button(action: {isInLayoutMode.toggle()}) {
                 Image(systemName: "circle.dashed")
             }
             .accessibilityLabel("New Footprint")
