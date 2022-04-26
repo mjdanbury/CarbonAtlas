@@ -17,6 +17,9 @@ struct MapView: View {
     @State private var zoomScale: CGFloat = 0.5
     @State private var initialZoomScale: CGFloat?
     
+    //Dragging
+//    @State private var initialPosition: CGPoint?
+    
     var body: some View {
         VStack {
             MapHeaderView(isInMapMode: $isInMapMode, isInLayoutMode: $isInLayoutMode)
@@ -27,9 +30,11 @@ struct MapView: View {
                         Circle()
                             .fill(Color.gray)
                             .frame(width: footprint.drawingRadius, height: footprint.drawingRadius)
-                            .offset(x: footprint.x, y: footprint.y)
+                            .offset(x: footprint.position.x, y: footprint.position.y)
+                            .onTapGesture(perform: {currentSelection = footprint})
 //                            .gesture( isInLayoutMode ? DragGesture()
 //                                .onChanged { value in
+//                                    //initial position =
 //                                    //footprint.x = initialPosition.x + value.x
 //                                    //footprint.y = initialPosition.y + value.y
 //                                }

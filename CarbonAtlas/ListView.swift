@@ -25,8 +25,8 @@ struct ListView: View {
                             Text(CO2Format(footprint.c02e))
                         }
                         Spacer()
-                        Text("x: "+String(Double(footprint.x)))
-                        Text("y: "+String(Double(footprint.y)))
+                        Text("x: "+String(Double(footprint.position.x)))
+                        Text("y: "+String(Double(footprint.position.y)))
                     }//.onTapGesture(perform: {currentSelection = footprint})
                 }
                 .onDelete(perform: deleteItems)

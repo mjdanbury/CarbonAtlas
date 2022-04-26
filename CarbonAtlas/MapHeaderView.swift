@@ -19,15 +19,10 @@ struct MapHeaderView: View {
             Text("Carbon Atlas")
                 .font(.title2)
             Spacer()
-            Button(action: {
-                isInLayoutMode = !isInLayoutMode
-            }) {
-                if isInLayoutMode {
-                    Image(systemName: "aqi.low")}
-                else {
-                    Image(systemName: "circle.dashed")
-                }
+            Button(action: {isInLayoutMode = !isInLayoutMode}) {
+                Image(systemName: "circle.dashed")
             }
+            .accessibilityLabel("New Footprint")
         }.padding()
     }
 }

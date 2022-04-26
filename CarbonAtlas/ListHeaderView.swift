@@ -12,18 +12,14 @@ struct ListHeaderView: View {
     @Binding var isPresentingNewFootprintView: Bool
     var body: some View {
         HStack{
-            Button(action: {
-                isInMapMode = true
-            }) {
+            Button(action: {isInMapMode = true}) {
                 Image(systemName: "circle.grid.cross")
             }
             Spacer()
             Text("Carbon Atlas")
                 .font(.title2)
             Spacer()
-            Button(action: {
-                isPresentingNewFootprintView = true
-            }) {
+            Button(action: {isPresentingNewFootprintView = true}) {
                 Image(systemName: "plus")
             }
             .accessibilityLabel("New Footprint")
