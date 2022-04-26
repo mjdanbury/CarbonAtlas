@@ -11,14 +11,15 @@ struct MapView: View {
     @Binding var footprints: [Footprint]
     @Binding var isInMapMode: Bool
     @State private var currentSelection: Footprint? = nil
-    @State private var isInLayoutMode = false
+    @State private var isInLayoutMode = true
     
     //Zooming
     @State private var zoomScale: CGFloat = 0.5
     @State private var initialZoomScale: CGFloat?
     
     //Dragging
-//    @State private var initialPosition: CGPoint?
+    @State private var dragSelection: Footprint? = nil
+    @State private var dragOffset = CGSize.zero
     
     var body: some View {
         VStack {
@@ -30,17 +31,23 @@ struct MapView: View {
                         Circle()
                             .fill(Color.gray)
                             .frame(width: footprint.drawingRadius, height: footprint.drawingRadius)
-                            .offset(x: footprint.position.x, y: footprint.position.y)
-                            .onTapGesture(perform: {currentSelection = footprint})
-//                            .gesture( isInLayoutMode ? DragGesture()
-//                                .onChanged { value in
-//                                    //initial position =
-//                                    //footprint.x = initialPosition.x + value.x
-//                                    //footprint.y = initialPosition.y + value.y
-//                                }
-//                                .onEnded { value in
-//                                    // initial position = nil
-//                                } : nil ) //ill need to do something similar on the magnification gesture
+                            .offset(x: dragSelection == footprint ? footprint.position.x + dragOffset.width : footprint.position.x,
+                                    y: dragSelection == footprint ? footprint.position.y + dragOffset.height : footprint.position.y)
+                            .gesture( isInLayoutMode ? DragGesture()
+                                .onChanged { gesture in
+                                    dragSelection = footprint
+                                    dragOffset = gesture.translation
+                                }
+                                .onEnded { value in
+                                    footprint.position.x += dragOffset.width
+                                    footprint.position.y += dragOffset.height
+                                    dragSelection = nil
+                                    dragOffset = .zero
+                                } : nil )
+                            .gesture( !isInLayoutMode ? TapGesture()
+                                .onEnded {
+                                    currentSelection = footprint
+                                } : nil )
                     }
                     .scaleEffect(self.zoomScale)
                 }
@@ -67,7 +74,7 @@ struct MapView: View {
                     }
                     
                 } else {
-                    EmptyView()
+                    Text("")
                 }
             }
         }

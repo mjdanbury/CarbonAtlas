@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Footprint: Identifiable, Codable {
+struct Footprint: Identifiable, Codable, Equatable {
     var id: UUID
     
     //A CGPoint is something with CGFloat's called x and y. Would it be better just to have a variable called position?
