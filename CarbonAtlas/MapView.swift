@@ -30,11 +30,11 @@ struct MapView: View {
                     Rectangle().fill(Color.white)
                         .onTapGesture(perform: {currentSelection = nil})
                     ForEach($footprints) { $footprint in
-//                        Image(footprint.possibleImageName)
-//                            .resizable()
-//                            .clipShape(Circle())
-                        Circle()
-                            .fill(Color.gray)
+                        Image(footprint.possibleImageName)
+                            .resizable()
+                            .clipShape(Circle())
+//                        Circle()
+//                            .fill(Color.gray)
                             .frame(width: footprint.drawingRadius, height: footprint.drawingRadius)
                             .shadow(color: Color.orange.opacity(1.0), radius: currentSelection == footprint ? footprint.drawingRadius/2 : 0)
                             .offset(x: dragSelection == footprint ? footprint.position.x + dragOffset.width : footprint.position.x,
