@@ -28,6 +28,7 @@ struct MapView: View {
             GeometryReader { geo in
                 ZStack{
                     Rectangle().fill(Color.white)
+                        .onTapGesture(perform: {currentSelection = nil})
                     ForEach($footprints) { $footprint in
 //                        Image(footprint.possibleImageName)
 //                            .resizable()
@@ -70,18 +71,18 @@ struct MapView: View {
                         self.initialZoomScale = nil
                     } : nil )
             }
-            HStack {
+            VStack {
                 if let selection = currentSelection, !isInLayoutMode {
                     Text(selection.name)
+                        .font(.headline)
+                    Spacer()
                     Text(CO2Format(selection.c02e))
-                    Button(action: {currentSelection = nil}) {
-                        Image(systemName: "xmark.circle")
-                    }
-                    
                 } else {
-                    Text("")
+                    Text("Tap Any Icon")
                 }
             }
+            .frame(height: 80)
+            .padding(4)
         }
     }
     
