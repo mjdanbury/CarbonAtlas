@@ -29,6 +29,9 @@ struct MapView: View {
                 ZStack{
                     Rectangle().fill(Color.white)
                     ForEach($footprints) { $footprint in
+//                        Image(footprint.possibleImageName)
+//                            .resizable()
+//                            .clipShape(Circle())
                         Circle()
                             .fill(Color.gray)
                             .frame(width: footprint.drawingRadius, height: footprint.drawingRadius)

@@ -31,26 +31,29 @@ struct ListView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .sheet(isPresented: $isPresentingNewFootprintView) {
-                NavigationView {
-                    DetailEditView(data: $newFootprintData)
-                        .toolbar {
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button("Dismiss") {
-                                    isPresentingNewFootprintView = false
-                                    newFootprintData = Footprint.Data()
-                                }
-                            }
-                            ToolbarItem(placement: .confirmationAction) {
-                                Button("Add") {
-                                    let newFootprint = Footprint(data: newFootprintData)
-                                    footprints.append(newFootprint)
-                                    isPresentingNewFootprintView = false
-                                    newFootprintData = Footprint.Data()
-                                }
+            Button("Import How Bad Are Bananas") {
+                footprints = importHowBadAreBananas()
+            }
+        }
+        .sheet(isPresented: $isPresentingNewFootprintView) {
+            NavigationView {
+                DetailEditView(data: $newFootprintData)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Dismiss") {
+                                isPresentingNewFootprintView = false
+                                newFootprintData = Footprint.Data()
                             }
                         }
-                }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Add") {
+                                let newFootprint = Footprint(data: newFootprintData)
+                                footprints.append(newFootprint)
+                                isPresentingNewFootprintView = false
+                                newFootprintData = Footprint.Data()
+                            }
+                        }
+                    }
             }
         }
     }

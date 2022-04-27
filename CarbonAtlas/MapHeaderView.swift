@@ -20,7 +20,12 @@ struct MapHeaderView: View {
                 .font(.title2)
             Spacer()
             Button(action: {isInLayoutMode.toggle()}) {
-                Image(systemName: "circle.dashed")
+                if isInLayoutMode {
+                    Image(systemName: "eye")
+                } else {
+                    Image(systemName: "circle.dashed")
+                }
+                
             }
             .accessibilityLabel("New Footprint")
         }.padding()
