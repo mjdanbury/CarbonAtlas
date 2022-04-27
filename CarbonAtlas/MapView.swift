@@ -35,6 +35,7 @@ struct MapView: View {
                         Circle()
                             .fill(Color.gray)
                             .frame(width: footprint.drawingRadius, height: footprint.drawingRadius)
+                            .shadow(color: Color.orange.opacity(1.0), radius: currentSelection == footprint ? footprint.drawingRadius/2 : 0)
                             .offset(x: dragSelection == footprint ? footprint.position.x + dragOffset.width : footprint.position.x,
                                     y: dragSelection == footprint ? footprint.position.y + dragOffset.height : footprint.position.y)
                             .gesture( isInLayoutMode ? DragGesture()

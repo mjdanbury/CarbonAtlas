@@ -27,13 +27,13 @@ struct ListView: View {
 //                        Spacer()
 //                        Text("x: "+String(Double(footprint.position.x)))
 //                        Text("y: "+String(Double(footprint.position.y)))
-                    }//.onTapGesture(perform: {currentSelection = footprint})
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }
-            Button("Import How Bad Are Bananas") {
-                footprints = importHowBadAreBananas()
-            }
+//            Button("Import How Bad Are Bananas") {
+//                footprints = importHowBadAreBananas()
+//            }
         }
         .sheet(isPresented: $isPresentingNewFootprintView) {
             NavigationView {
